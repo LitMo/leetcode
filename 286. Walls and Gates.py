@@ -1,3 +1,5 @@
+
+### DFS solution, easy to code, unstable in terms of performance
 class Solution(object):
     def wallsAndGates(self, rooms):
         """
