@@ -1,4 +1,31 @@
-
+### BFS Solutions, time O(mn)
+import collections
+class Solution(object):
+    def wallsAndGates(self, rooms):
+        """
+        :type rooms: List[List[int]]
+        :rtype: None Do not return anything, modify rooms in-place instead.
+        """
+        if not rooms or not rooms[0]:
+            return 
+        directions = [(1,0),(-1,0),(0,1),(0,-1)]
+        queue = collections.deque()
+        # Push gate into queue
+        for i in range(len(rooms)):
+            for j in range(len(rooms[0])):
+                if rooms[i][j] == 0:
+                    queue.append([i, j])
+        
+        # BFS
+        while queue:
+            x, y = queue.popleft()
+            for direct in directions:
+                new_x, new_y = x+direct[0], y+direct[1]
+                if 0<= new_x < len(rooms) and 0<=new_y < len(rooms[0]) and rooms[x][y]+1 < rooms[new_x][new_y]:
+                    rooms[new_x][new_y] = rooms[x][y]+1
+                    queue.append([new_x, new_y])
+        
+        
 ### DFS solution, easy to code, unstable in terms of performance
 class Solution(object):
     def wallsAndGates(self, rooms):
