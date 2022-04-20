@@ -3,6 +3,9 @@
 ## Topic: BFS 
 ## 
 ## Dijstra similar & prior-queue
+
+## Time: O(N**2 * logN), perform pq (logN*N) = 2*logN on upto N**2 Nodes
+## Space: O(N**2), up to N**2 nodes for the pq
 class Solution:
     def swimInWater(self, grid: List[List[int]]) -> int:
         N = len(grid)
